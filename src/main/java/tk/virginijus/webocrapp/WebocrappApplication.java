@@ -13,6 +13,8 @@ public class WebocrappApplication {
         String inputFilePath = "/files/Testproc1.jpg";
         Tesseract tesseract = new Tesseract();
         tesseract.setDatapath("/lib");
+        tesseract.setLanguage("eng");
+       // tesseract.setLanguage("lit");
         try {
             String fullText  = tesseract.doOCR(new File(inputFilePath));
             System.out.println(fullText);
