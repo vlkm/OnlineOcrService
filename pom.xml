@@ -39,7 +39,7 @@
         <dependency>
             <groupId>net.sourceforge.tess4j</groupId>
             <artifactId>tess4j</artifactId>
-            <version>4.1.0</version>
+            <version>3.4.1</version>
         </dependency>
         <!-- Thanks for using https://jar-download.com -->
 

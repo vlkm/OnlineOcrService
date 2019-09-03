@@ -10,19 +10,18 @@ import java.io.File;
 public class WebocrappApplication {
 
     public static void main(String[] args) {
-        String inputFilePath = "/files/Testproc1.jpg";
+        String inputPath  =  "target/classes/";
         Tesseract tesseract = new Tesseract();
-        tesseract.setDatapath("/lib");
-        tesseract.setLanguage("eng");
-       // tesseract.setLanguage("lit");
         try {
-            String fullText  = tesseract.doOCR(new File(inputFilePath));
+            tesseract.setDatapath(inputPath + "lib");
+
+          //  tesseract.setLanguage("eng");
+         // tesseract.setLanguage("lit");
+            String fullText  = tesseract.doOCR(new File(inputPath + "OA.png"));
             System.out.println(fullText);
         } catch (TesseractException e) {
             e.printStackTrace();
         }
-
-
         SpringApplication.run(WebocrappApplication.class, args);
     }
 
