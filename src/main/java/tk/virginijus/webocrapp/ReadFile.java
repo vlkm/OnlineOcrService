@@ -14,7 +14,7 @@ public class ReadFile {
             try {
                 tesseract.setDatapath(inputPath + "lib");
                 //https://github.com/tesseract-ocr/tesseract/wiki/Data-Files
-//            tesseract.setLanguage("eng");
+//              tesseract.setLanguage("eng");
                 tesseract.setLanguage("lit");
                 String fullText  = tesseract.doOCR(new File(inputFilePath));
                 System.out.println(fullText);
