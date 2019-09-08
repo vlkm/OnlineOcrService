@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+
+        <div th:if="${message}">
+            <h2 th:text="${message}"/>
+        </div>
+
+        <div>
+            <form method="POST" enctype="multipart/form-data" action="/">
+                <table> WEB OCR Application
+                    <tr>
+                        <td>File to upload max (128KB):</td>
+                        <td><input type="file"
+                                   name="inputName"
+                                   accept="image/jpg, image/png, image/bmp, image/tiff" />
+                        </td>
+                    </tr>
+                    <tr><td></td><td><input type="submit" value="Upload" /> Press here to upload the file!</td></tr>
+                </table>
+            </form>
+        </div>
+
+</body>
+</html>

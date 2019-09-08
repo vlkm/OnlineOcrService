@@ -1,28 +1,36 @@
 package tk.virginijus.webocrapp;
 
-import net.sourceforge.tess4j.TesseractException;
-import net.sourceforge.tess4j.Tesseract;
+
+import org.apache.coyote.http11.AbstractHttp11Protocol;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.io.File;
+import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class WebocrappApplication {
 
-    public static void main(String[] args) {
-        String inputPath  =  "target/classes/";
-        String inputFilePath = inputPath + "files/OA.png";
-        Tesseract tesseract = new Tesseract();
-        try {
-            tesseract.setDatapath(inputPath + "lib");
-         // tesseract.setLanguage("eng");
-         // tesseract.setLanguage("lit");
-            String fullText  = tesseract.doOCR(new File(inputFilePath));
-            System.out.println(fullText);
-        } catch (TesseractException e) {
-            e.printStackTrace();
-        }
-       // SpringApplication.run(WebocrappApplication.class, args);
+    private int maxUploadSizeInMb = 2 * 1024 * 1024; // 2 MB
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(WebocrappApplication.class, args);
+    }
+
+    @Bean
+    public TomcatServletWebServerFactory tomcatEmbedded() {
+
+        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
+
+        tomcat.addConnectorCustomizers((TomcatConnectorCustomizer) connector -> {
+            if ((connector.getProtocolHandler() instanceof AbstractHttp11Protocol<?>)) {
+                //-1 means unlimited
+                ((AbstractHttp11Protocol<?>) connector.getProtocolHandler()).setMaxSwallowSize(-1);
+            }
+        });
+
+        return tomcat;
+
     }
 
 }
