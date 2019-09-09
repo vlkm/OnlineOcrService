@@ -60,7 +60,6 @@ public class UploadController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return "redirect:/uploadStatus";
     }
 

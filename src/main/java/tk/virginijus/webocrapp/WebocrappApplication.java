@@ -8,15 +8,15 @@ import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomize
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 
+
 @SpringBootApplication
 public class WebocrappApplication {
-
-    private int maxUploadSizeInMb = 2 * 1024 * 1024; // 2 MB
-
     public static void main(String[] args) throws Exception {
+
         SpringApplication.run(WebocrappApplication.class, args);
     }
 
+    private int maxUploadSizeInMb = 2 * 1024 * 1024; // 2 MB
     @Bean
     public TomcatEmbeddedServletContainerFactory tomcatEmbedded() {
 
