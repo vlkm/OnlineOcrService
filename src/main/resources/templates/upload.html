@@ -2,14 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<h1>Spring Boot file upload example</h1>
-<h2>Email : hendisantika@gmail.com</h2>
-<h2>Twitter and telegram : @hendisantika34</h2>
+<h1> WEB OCR Application </h1>
+<h2> Spring Boot image read example program </h2>
+<h3> You can add an image to read a text from it</h3>
+<div>
+    <form method="POST" action="/upload" enctype="multipart/form-data" >
+        <table>
+            <tr>
+                <td>File to upload max (2MB):</td>
+                <td><input type="file"
+                           name="inputName"
+                           accept="image/jpg, image/png, image/bmp, image/tiff" />
+                </td>
+            </tr>
+            <tr><td></td><td><input type="submit" value="Upload" /> Press here to upload the file!</td></tr>
+        </table>
+    </form>
+</div>
 
-<form method="POST" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="file" /><br/><br/>
-    <input type="submit" value="Submit" />
-</form>
 
 </body>
 </html>

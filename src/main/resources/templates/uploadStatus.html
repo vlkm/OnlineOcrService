@@ -3,10 +3,20 @@
 <body>
 
 <h1>Spring Boot - Upload Status</h1>
-
 <div th:if="${message}">
     <h2 th:text="${message}"/>
 </div>
+<h1>Text search rezults</h1>
+<div th:if="${text}">
+    <h2 th:text="${text}"/>
+</div>
+<div th:if="${time}">
+    <h2 th:text="${time}"/>
+</div>
+
+<form method="GET" action="/" enctype="multipart/form-data">
+    <input type="submit" value="Back" />
+</form>
 
 </body>
 </html>
