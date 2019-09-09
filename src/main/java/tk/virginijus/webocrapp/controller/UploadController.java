@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import tk.virginijus.webocrapp.service.ImageReadService;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,8 +51,8 @@ public class UploadController {
             Files.write(path, bytes);
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
-            //todo nuskaitymas
-            String text = "nuskaitytas tekstas ";
+            ImageReadService imageReadService = new ImageReadService();
+            String text = imageReadService.readImage(path);
             redirectAttributes.addFlashAttribute(  "text",  text);
             redirectAttributes.addFlashAttribute(  "time",  "Time : " + new Date());
 
