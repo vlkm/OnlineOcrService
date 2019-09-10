@@ -4,18 +4,25 @@ package tk.virginijus.webocrapp.service;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.io.File;
+
 
 
 @Component
 public class ImageReadService{
-
+@ResponseBody
     public String readImage(String libFolder, String inputFilePath) {
 
         String fullText = "";
         Tesseract tesseract = new Tesseract();
             try {
-                System.out.println("Used libFolder! :" + libFolder );
+                //Check tessdata
+                File libr = new File(libFolder + "/tessdata/eng.traineddata");
+                if (libr.exists()) System.out.println("Good for Linux libFolder! :" + libFolder );
+                libr = new File(libFolder + "/eng.traineddata");
+                if (libr.exists()) System.out.println("Good for Windows libFolder! :" + libFolder );
                 tesseract.setDatapath( libFolder );
 //more languages https://github.com/tesseract-ocr/tesseract/wiki/Data-Files
 //              tesseract.setLanguage("eng");

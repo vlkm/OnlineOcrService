@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import tk.virginijus.webocrapp.WebocrappApplication;
 import tk.virginijus.webocrapp.service.ImageReadService;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,7 +19,7 @@ import java.util.Date;
 public class UploadController {
 
     //Start folder for the uploaded images and libraries
-    private static String UPLOADED_FOLDER = "";
+    private static String uploadFolder = "";
 
     @GetMapping("/")
     public String index() {
@@ -60,8 +59,8 @@ public class UploadController {
         System.out.println("Current Path /: " + currentPath);}
 
 
-        UPLOADED_FOLDER = currentPath + "/images";
-        inputPath = UPLOADED_FOLDER + "/" + file.getOriginalFilename();
+        uploadFolder = currentPath + "/images";
+        inputPath = uploadFolder + "/" + file.getOriginalFilename();
 
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a image to upload");
@@ -70,15 +69,15 @@ public class UploadController {
 
         try {
             //Check the directory
-            File fileDir = new File(UPLOADED_FOLDER + "/");
+            File fileDir = new File(uploadFolder + "/");
             if (!fileDir.exists()) {
                 if (fileDir.mkdir()) {
-                    System.out.println("Directory is created! :" + UPLOADED_FOLDER);
+                    System.out.println("Directory is created! :" + uploadFolder);
                 } else {
-                    System.out.println("Failed to create directory! :" + UPLOADED_FOLDER );
+                    System.out.println("Failed to create directory! :" + uploadFolder );
                 }
             } else {
-                System.out.println("Used directory! :" + UPLOADED_FOLDER );
+                System.out.println("Used directory! :" + uploadFolder );
             }
             // Get the file and save it
             byte[] bytes = file.getBytes();
