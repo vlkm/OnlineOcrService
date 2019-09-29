@@ -1,4 +1,4 @@
-package tk.virginijus.webocrapp;
+package tk.virginijus.onlineocrservice;
 
 
 import org.apache.coyote.http11.AbstractHttp11Protocol;
@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
-public class WebocrappApplication {
+public class OnlineocrappApplication {
     public static void main(String[] args) throws Exception {
 
-        SpringApplication.run(WebocrappApplication.class, args);
+        SpringApplication.run(OnlineocrappApplication.class, args);
     }
 
-    private int maxUploadSizeInMb = 2 * 1024 * 1024; // 2 MB
+    private int maxUploadSizeInMb = 5 * 1024 * 1024; // 5 MB
     @Bean
     public TomcatEmbeddedServletContainerFactory tomcatEmbedded() {
 

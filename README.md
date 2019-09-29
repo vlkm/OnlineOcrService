@@ -1,6 +1,6 @@
-## Web OCR Application with Spring Boot (Online Image File Upload and Convert to Text Example
+## Online OCR Service project JAVA with Spring, (Online Image File Upload and Convert to Text Example)
 
-This article shows you how to upload an image in Spring Boot web application, convert to text.
+This article shows you how to create Spring Boot Online Service for uploading an Image, for converting to text.
 
 
 ## Steps to Setup
@@ -8,15 +8,15 @@ This article shows you how to upload an image in Spring Boot web application, co
 **1. Clone the repository** 
 
 ```bash
-git clone https://github.com/vlkm/WebOCRApp.git
+git clone https://github.com/vlkm/OnlineOcrService.git
 ```
 
 **2. Run the app using maven**
 
 ```bash
 open your terminal then type this command :
-goto dir "cd WebOCRApp"
-\WebOCRApp> mvn clean spring-boot:run
+goto dir "cd OnlineOcrService"
+\onlineocrservice> mvn clean spring-boot:run
 ```
 **3. Open your browser:**
 
@@ -30,7 +30,7 @@ You may also package the application in the form of a jar and then run the jar f
 
 ```bash
 mvn clean package
-java -jar target/webocrapp-0.0.1-SNAPSHOT.war 
+java -jar target/OnlineOcrService-0.0.1-SNAPSHOT.war 
 
 ```
 

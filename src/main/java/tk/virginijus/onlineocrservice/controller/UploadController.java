@@ -1,4 +1,4 @@
-package tk.virginijus.webocrapp.controller;
+package tk.virginijus.onlineocrservice.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import tk.virginijus.webocrapp.WebocrappApplication;
-import tk.virginijus.webocrapp.service.ImageReadService;
 import java.io.File;
+import tk.virginijus.onlineocrservice.OnlineocrappApplication;
+import tk.virginijus.onlineocrservice.service.ImageReadService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,7 +32,7 @@ public class UploadController {
 
         String inputPath  =  "target/classes/";
 //        file:/root/webocrapp-0.0.1.war!/WEB-INF/classes!/
-        String currentPath = WebocrappApplication.class
+        String currentPath = OnlineocrappApplication.class
                 .getProtectionDomain()
                 .getCodeSource()
                 .getLocation()

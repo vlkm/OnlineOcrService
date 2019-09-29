@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tk.virginijus</groupId>
-    <artifactId>webocrapp</artifactId>
-    <version>0.0.1</version>
-    <name>webocrapp</name>
-    <description>Web OCR Application project for Spring Boot</description>
+    <artifactId>onlineocrapp</artifactId>
+    <version>0.0.3</version>
+    <name>onlineimageread</name>
+    <description>Online Image to Text Application project for Spring Boot</description>
     <packaging>war</packaging>
 
     <parent>
@@ -68,7 +68,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>tk.virginijus.webocrapp.WebocrappApplication</mainClass>
+                    <mainClass>tk.virginijus.onlineocrservice.OnlineocrappApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

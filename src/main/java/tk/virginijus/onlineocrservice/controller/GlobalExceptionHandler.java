@@ -1,4 +1,4 @@
-package tk.virginijus.webocrapp.controller;
+package tk.virginijus.onlineocrservice.controller;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
